@@ -8,3 +8,7 @@
 .game-level-title {
   text-align: center;
 }
+
+.game-answer-selector.disabled  {
+  pointer-events: none;
+}

@@ -1,5 +1,5 @@
 <h2>{{model.title}}</h2>
 
 {{#each model.answers as |answer|}}
-  {{answer.title}}
+  {{answer-selector answer=answer}}
 {{/each}}
