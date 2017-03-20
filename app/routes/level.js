@@ -8,8 +8,11 @@ export default Ember.Route.extend({
 
   handleOnInit: Ember.on('init', function() {
     const self = this;
-    this.get('levelsManager').on('transition', function(levelId, question) {
-      self.transitionTo(`level.question`, levelId, question);
+    this.get('levelsManager').on('transitionQuestion', function(levelId, question) {
+      self.transitionTo('level.question', levelId, question);
+    });
+    this.get('levelsManager').on('transitionOutcome', function() {
+      self.transitionTo('outcome');
     });
   }),
 

@@ -18,7 +18,9 @@ export default Ember.Service.extend(Ember.Evented, {
       console.log('id', this.get('id'))
       if (nextQuestion) {
         this.get('questionsManager').resetAnswer();
-        this.trigger('transition', this.get('id'), nextQuestion);
+        this.trigger('transitionQuestion', this.get('id'), nextQuestion);
+      } else {
+        this.trigger('transitionOutcome');
       }
     });
   }),
@@ -29,7 +31,7 @@ export default Ember.Service.extend(Ember.Evented, {
       this.set('currentQuestionPosition');
       const id = model.get('id');
       const firstQuestion  = model.get('questions.firstObject');
-      this.trigger('transition', id, firstQuestion);
+      this.trigger('transitionQuestion', id, firstQuestion);
     }
   }
 });
